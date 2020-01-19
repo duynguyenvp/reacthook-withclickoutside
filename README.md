@@ -5,7 +5,7 @@
 - Usage:
 ```js
 import withClickOutside from 'reacthook-withclickoutside'
-  export default function Component() {
+export default function Component() {
   const refClickOutside = withClickOutside(() => {
      // Do something here...
   })

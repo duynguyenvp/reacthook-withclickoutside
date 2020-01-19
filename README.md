@@ -3,11 +3,14 @@
 - Install:
 > npm install --save reacthook-withclickoutside
 - Usage:
-> import withClickOutside from 'reacthook-withclickoutside'
->
-> const refClickOutside = withClickOutside(() => {
->    // Do something here...
-> })
->
-> <div ref={refClickOutside}></div>
->
+```js
+import withClickOutside from 'reacthook-withclickoutside'
+  export default function Component() {
+  const refClickOutside = withClickOutside(() => {
+     // Do something here...
+  })
+  render(
+    <div ref={refClickOutside}></div>
+  )
+}
+```

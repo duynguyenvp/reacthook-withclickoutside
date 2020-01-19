@@ -5,4 +5,5 @@ npm-debug.log
 yarn-error.log
 yarn.lock
 .babelrc
-dist/
+dist
+src

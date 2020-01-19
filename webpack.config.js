@@ -1,10 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    entry: ["@babel/polyfill", path.resolve(__dirname, 'src/index')],
+    entry: ["@babel/polyfill", path.resolve(__dirname, 'src/withClickOutside')],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'withClickOutside.js',
+        library: 'withClickOutside'
     },
     module: {
         rules: [

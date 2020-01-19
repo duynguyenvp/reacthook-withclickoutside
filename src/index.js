@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 
 import withClickOutside from './withClickOutside'
-
+console.log(withClickOutside)
 const App = () => {
     const [isOpen, setIsOpen] = useState(false)
     const ref = withClickOutside(() => {

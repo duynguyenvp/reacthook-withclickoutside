@@ -1,8 +1,8 @@
 # reacthook-withclickoutside
 
-- Install:
+#### Installation:
 > npm install --save reacthook-withclickoutside
-- Usage:
+#### Usage:
 ```js
 import withClickOutside from 'reacthook-withclickoutside'
 export default function Component() {

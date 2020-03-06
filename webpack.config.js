@@ -2,10 +2,13 @@ var path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: path.resolve(__dirname, "src/withClickOutside.js"),
+  entry: {
+    index: path.resolve(__dirname, "src/withClickOutside.js"),
+    test: path.resolve(__dirname, "src/index.js")
+  },
   output: {
     path: path.resolve(__dirname),
-    filename: "index.js",
+    filename: "[name].js",
     libraryTarget: "commonjs2"
   },
   module: {

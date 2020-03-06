@@ -1,6 +1,7 @@
 package.json
 index.html
 webpack.config.js
+test.js
 npm-debug.log
 yarn-error.log
 yarn.lock

@@ -6,7 +6,7 @@ const App = () => {
     const [isOpen, setIsOpen] = useState(false)
     const ref = withClickOutside(() => {
         setIsOpen(!isOpen)
-    })
+    }, ["test1", "test2", "test3"])
     return <h1 ref={ref}>{isOpen ? "open" : "close"}</h1>
 }
 

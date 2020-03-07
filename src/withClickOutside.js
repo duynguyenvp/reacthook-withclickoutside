@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function (handler, excludeContainerIds = []) {
+export default function ({ handler, excludeContainerIds, excludeQuerySelectors }) {
     const wrappedComponent = useRef(null)
     const [excludeContainers, setExcludeContainers] = useState([])
 
@@ -21,8 +21,14 @@ export default function (handler, excludeContainerIds = []) {
     }
     useEffect(() => {
         let containers = []
-        excludeContainerIds.forEach(id => {
+        excludeContainerIds && excludeContainerIds.forEach(id => {
             const container = document.getElementById(id)
+            if (container) {
+                containers.push(container)
+            }
+        });
+        excludeQuerySelectors && excludeQuerySelectors.forEach(selector => {
+            const container = document.querySelector(selector)
             if (container) {
                 containers.push(container)
             }

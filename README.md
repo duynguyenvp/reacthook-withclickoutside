@@ -9,6 +9,7 @@
 | handler  | If click is outside, this function will execute | () => { //Do something here...} |
 | excludeContainerIds | Some frameworks render something <br /> like menu-item or select-option in <br /> different container, therefore you must exclude them.| ['id1','id2']|
 | excludeQuerySelectors | Sometime different container doesn't <br /> have id so you can replace it with querySelector | ['selector1','selector2']|
+| isInitContainersAllTimes | Set it `false` to find all containers once time. | `true` or `false`|
 
 #### Usage:
 ```js

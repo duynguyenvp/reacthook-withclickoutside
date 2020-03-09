@@ -1,12 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function ({ handler, excludeContainerIds, excludeQuerySelectors }) {
+export default function ({ handler, excludeContainerIds, excludeQuerySelectors, isInitContainersAllTimes = false }) {
     const wrappedComponent = useRef(null)
     const [excludeContainers, setExcludeContainers] = useState([])
 
     const checkIfExistInExcludeDoms = (event) => {
-        for (let index = 0; index < excludeContainers.length; index++) {
-            const element = excludeContainers[index];
+        let containers = []
+        if (isInitContainersAllTimes) {
+            containers = findAllContainers();
+        }
+        else {
+            containers = [...excludeContainers]
+        }
+        for (let index = 0; index < containers.length; index++) {
+            const element = containers[index];
             if (element && typeof element.contains === 'function' && element.contains(event.target)) {
                 return false;
             }
@@ -14,12 +21,13 @@ export default function ({ handler, excludeContainerIds, excludeQuerySelectors }
         return true;
     }
 
-    function handleClickOutside(event) {
+    const handleClickOutside = (event) => {
         if (wrappedComponent && wrappedComponent.current && !wrappedComponent.current.contains(event.target) && checkIfExistInExcludeDoms(event)) {
             handler(event);
         }
     }
-    useEffect(() => {
+
+    const findAllContainers = () => {
         let containers = []
         excludeContainerIds && excludeContainerIds.forEach(id => {
             const container = document.getElementById(id)
@@ -33,7 +41,13 @@ export default function ({ handler, excludeContainerIds, excludeQuerySelectors }
                 containers.push(container)
             }
         });
-        setExcludeContainers(containers)
+        return containers
+    }
+
+    useEffect(() => {
+        if (!isInitContainersAllTimes) {
+            setExcludeContainers(findAllContainers())
+        }
     }, [])
 
     useEffect(() => {

@@ -5,7 +5,7 @@
     "email": "duynguyen263@hotmail.com",
     "url": "http://somethingaboutme.info"
   },
-  "version": "1.2.5",
+  "version": "1.2.6",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
